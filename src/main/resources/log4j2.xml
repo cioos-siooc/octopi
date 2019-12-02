@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  -->
+
+<!--DEV configuration-->
+<Configuration status="debug">
+
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT">
+      <PatternLayout>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %C - %msg%n</pattern>
+      </PatternLayout>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="ca.ogsl" level="debug" additivity="false">
+      <AppenderRef ref="console" level="debug"/>
+    </Logger>
+
+    <Root level="info">
+      <AppenderRef ref="console"/>
+    </Root>
+  </Loggers>
+
+</Configuration>
+
+<!--TEST configuration-->
+<!--<Configuration status="warn">-->
+
+  <!--<Properties>-->
+    <!--<Property name="baseDir">/opt/tomcat/logs/octopi</Property>-->
+  <!--</Properties>-->
+
+  <!--<Appenders>-->
+    <!--<Console name="console" target="SYSTEM_OUT">-->
+      <!--<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %C - %msg%n"/>-->
+    <!--</Console>-->
+
+    <!--<RollingFile name="rolling-file" fileName="${baseDir}/octopi.log"-->
+      <!--filePattern="${baseDir}/octopiv-%d{yyyy-MM-dd}.log">-->
+      <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level [%t] %C - %msg%n"/>-->
+      <!--<Policies>-->
+        <!--<TimeBasedTriggeringPolicy interval="1" modulate="true"/>-->
+      <!--</Policies>-->
+      <!--<DefaultRolloverStrategy max="10">-->
+        <!--<Delete basePath="${baseDir}" maxDepth="2">-->
+          <!--<IfFileName glob="octopi-*.log">-->
+            <!--<IfLastModified age="30d">-->
+            <!--</IfLastModified>-->
+          <!--</IfFileName>-->
+        <!--</Delete>-->
+      <!--</DefaultRolloverStrategy>-->
+    <!--</RollingFile>-->
+  <!--</Appenders>-->
+
+  <!--<Loggers>-->
+    <!--<Logger name="ca.ogsl" level="debug" additivity="false">-->
+      <!--<AppenderRef ref="console" level="debug"/>-->
+      <!--<AppenderRef ref="rolling-file" level="debug"/>-->
+    <!--</Logger>-->
+
+    <!--<Root level="info">-->
+      <!--<AppenderRef ref="console" level="info"/>-->
+      <!--<AppenderRef ref="rolling-file" level="info"/>-->
+    <!--</Root>-->
+  <!--</Loggers>-->
+
+<!--</Configuration>-->
+
+<!--Prod configuration-->
+<!--<Configuration status="warn">-->
+
+<!--<Properties>-->
+  <!--<Property name="baseDir">/var/log/tomcat/octopi</Property>-->
+<!--</Properties>-->
+
+<!--<Appenders>-->
+  <!--<Console name="console" target="SYSTEM_OUT">-->
+    <!--<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %C - %msg%n"/>-->
+  <!--</Console>-->
+
+  <!--<RollingFile name="rolling-file" fileName="${baseDir}/octopi.log"-->
+    <!--filePattern="${baseDir}/octopi-%d{yyyy-MM-dd}.log">-->
+    <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level [%t] %C - %msg%n"/>-->
+    <!--<Policies>-->
+      <!--<TimeBasedTriggeringPolicy interval="1" modulate="true"/>-->
+    <!--</Policies>-->
+    <!--<DefaultRolloverStrategy max="10">-->
+      <!--<Delete basePath="${baseDir}" maxDepth="2">-->
+        <!--<IfFileName glob="octopi-*.log">-->
+          <!--<IfLastModified age="30d">-->
+          <!--</IfLastModified>-->
+        <!--</IfFileName>-->
+      <!--</Delete>-->
+    <!--</DefaultRolloverStrategy>-->
+  <!--</RollingFile>-->
+<!--</Appenders>-->
+
+<!--<Loggers>-->
+  <!--<Logger name="ca.ogsl" level="info" additivity="false">-->
+    <!--<AppenderRef ref="console" level="info"/>-->
+    <!--<AppenderRef ref="rolling-file" level="info"/>-->
+  <!--</Logger>-->
+
+  <!--<Root level="warn">-->
+    <!--<AppenderRef ref="console" level="warn"/>-->
+    <!--<AppenderRef ref="rolling-file" level="warn"/>-->
+  <!--</Root>-->
+<!--</Loggers>-->
+
+<!--</Configuration>-->

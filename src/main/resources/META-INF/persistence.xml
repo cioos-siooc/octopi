@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  -->
+
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="octopi" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:/comp/env/jdbc/octopi</jta-data-source>
+        <non-jta-data-source>java:/comp/env/jdbc/octopi</non-jta-data-source>
+        <class>ca.ogsl.octopi.models.Topic</class>
+        <class>ca.ogsl.octopi.models.TopicGroup</class>
+        <class>ca.ogsl.octopi.models.ClientPresentation</class>
+        <class>ca.ogsl.octopi.models.Language</class>
+        <class>ca.ogsl.octopi.models.LayerInfo</class>
+        <class>ca.ogsl.octopi.models.WfsLayer</class>
+        <class>ca.ogsl.octopi.models.GeojsonLayer</class>
+        <class>ca.ogsl.octopi.models.WmsLayer</class>
+        <class>ca.ogsl.octopi.models.BingLayer</class>
+        <class>ca.ogsl.octopi.models.Category</class>
+        <class>ca.ogsl.octopi.models.CategoryHierarchy</class>
+        <class>ca.ogsl.octopi.models.TopicHierarchy</class>
+        <class>ca.ogsl.octopi.models.Layer</class>
+        <class>ca.ogsl.octopi.models.ClickStrategy</class>
+        <class>ca.ogsl.octopi.models.WmsStrategy</class>
+        <class>ca.ogsl.octopi.models.LayerDescription</class>
+        <class>ca.ogsl.octopi.models.CategoryRelation</class>
+        <class>ca.ogsl.octopi.models.ClickFormatter</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.transaction.factory_class" value="org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect" />
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="auth" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:/comp/env/jdbc/auth</jta-data-source>
+        <non-jta-data-source>java:/comp/env/jdbc/auth</non-jta-data-source>
+        <class>ca.ogsl.octopi.models.auth.Role</class>
+        <class>ca.ogsl.octopi.models.auth.User</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.transaction.factory_class" value="org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect" />
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
