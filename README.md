@@ -6,8 +6,9 @@ documentation is available at http://\(HOST\):\(PORT\)/octopi/api/swagger.json
 ## Deployment
 
 ### Deploying the Dockerfile
-1. Build the image: `docker image build -t octopi-build:1.0 .`
-2. Run the container: `docker container run -it -p 8080:8080 --name octopi-build octopi-build:1.0`
+1. Create a octopi/src/main/resources/META-INF/context.xml file based on the context.template.xml file. The databases uri and credentials need to be set there.
+2. Build the image: `docker image build -t octopi-build:1.0 .`
+3. Run the container: `docker container run -it -p 8080:8080 --name octopi-build octopi-build:1.0`
 
 ## Example Workflows
 These workflow diagrams are best used in conjunction with the API documentation.
